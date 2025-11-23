@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nexus Lab — Innovation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .max-w-site {
+            max-width: 1200px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+
+        .tech-grid {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(30, 41, 59, 0.3) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(30, 41, 59, 0.3) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        .scanner-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(6, 182, 212, 0.2) 50%, transparent);
+            transform: translateY(-100%);
+            transition: transform 0.5s;
+            pointer-events: none;
+        }
+
+        .group:hover .scanner-line {
+            animation: scan 1.5s infinite linear;
+        }
+
+        @keyframes scan {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        .neon-text {
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+        }
+
+        .card-glow {
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(45deg, #06b6d4, #a855f7, #06b6d4);
+            filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+
+        .group:hover .card-glow {
+            opacity: 0.4;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            850: '#172033',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        cyan: {
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="antialiased text-slate-300 bg-slate-950 font-sans selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden">
+    <div id="app" class="relative min-h-screen flex flex-col">
+        <!-- Animated Background -->
+        <div class="fixed inset-0 z-0 pointer-events-none">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(15,23,42,0.8),_rgba(2,6,23,1))]">
+            </div>
+            <div class="absolute inset-0 tech-grid opacity-50"></div>
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[128px] animate-pulse-slow">
+            </div>
+            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[128px] animate-pulse-slow"
+                style="animation-delay: 2s;"></div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="fixed z-50 top-0 left-0 right-0 border-b border-white/5 bg-slate-950/80 backdrop-blur-xl">
+            <div class="max-w-site mx-auto px-6 h-20 flex items-center justify-between">
+                <a href="#" class="flex items-center gap-3 group">
+                    <div
+                        class="relative w-10 h-10 flex items-center justify-center bg-slate-900 border border-white/10 rounded-lg overflow-hidden group-hover:border-cyan-500/50 transition-colors">
+                        <div
+                            class="absolute inset-0 bg-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                        <span class="font-mono font-bold text-cyan-400 text-xl">N</span>
+                    </div>
+                    <span
+                        class="font-bold text-xl tracking-tight text-white group-hover:text-cyan-400 transition-colors">Nexus<span
+                            class="font-light text-slate-500">Lab</span></span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <div class="flex items-center gap-1 bg-slate-900/50 p-1 rounded-full border border-white/5">
+                        <a href="#services"
+                            class="px-5 py-2 rounded-full text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all">Services</a>
+                        <a href="#work"
+                            class="px-5 py-2 rounded-full text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all">Work</a>
+                        <a href="#pricing"
+                            class="px-5 py-2 rounded-full text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 transition-all">Pricing</a>
+                    </div>
+                    <a href="#contact"
+                        class="px-6 py-2.5 bg-cyan-500 text-slate-950 rounded-lg font-bold text-sm hover:bg-cyan-400 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all">Initialize</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="relative z-10 min-h-screen flex items-center justify-center pt-20">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <div class="reveal-on-scroll">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-mono mb-8">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                        </span>
+                        SYSTEM_ONLINE v2.0
+                    </div>
+                    <h1 class="text-6xl md:text-8xl font-bold tracking-tighter text-white mb-8 leading-none">
+                        Architecting <br />
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 neon-text">The
+                            Future</span>
+                    </h1>
+                    <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+                        {{hero.text}}
+                    </p>
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                        <a href="#contact"
+                            class="w-full md:w-auto px-8 py-4 bg-white text-slate-950 rounded-lg font-bold hover:bg-cyan-50 transition-colors">
+                            Start Project
+                        </a>
+                        <a href="#work"
+                            class="w-full md:w-auto px-8 py-4 bg-transparent border border-white/20 text-white rounded-lg font-bold hover:bg-white/5 transition-colors flex items-center justify-center gap-2 group">
+                            View Protocol <span class="group-hover:translate-x-1 transition-transform">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+                <span class="text-[10px] font-mono uppercase tracking-widest text-slate-500">Scroll</span>
+                <div class="w-px h-12 bg-gradient-to-b from-cyan-500 to-transparent"></div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-20 relative z-10 border-y border-white/5 bg-slate-900/20 backdrop-blur-sm">
+            <div class="max-w-site mx-auto px-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+                    {{#stats}}
+                    <div class="text-center reveal-on-scroll">
+                        <div class="text-4xl md:text-5xl font-bold text-white mb-2 font-mono">{{value}}</div>
+                        <div class="text-xs text-cyan-500 font-mono uppercase tracking-widest">{{label}}</div>
+                    </div>
+                    {{/stats}}
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section (Interactive) -->
+        <section id="services" class="py-32 relative z-10">
+            <div class="max-w-site mx-auto px-6">
+                <div class="mb-20 reveal-on-scroll">
+                    <h2 class="text-cyan-500 font-mono text-sm mb-4">/// CAPABILITIES</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold text-white">Core Modules</h3>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    {{#services}}
+                    <div
+                        class="group relative bg-slate-900/50 border border-white/10 rounded-xl p-8 hover:border-cyan-500/50 transition-colors overflow-hidden reveal-on-scroll">
+                        <div class="card-glow"></div>
+                        <div class="scanner-line"></div>
+
+                        <div class="relative z-10">
+                            <div
+                                class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 text-cyan-400 group-hover:text-white group-hover:bg-cyan-500 transition-all duration-300">
+                                ❖
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+                                {{title}}</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">{{desc}}</p>
+                        </div>
+                    </div>
+                    {{/services}}
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section -->
+        <section id="work" class="py-32 relative z-10">
+            <div class="max-w-site mx-auto px-6">
+                <div class="flex justify-between items-end mb-16 reveal-on-scroll">
+                    <div>
+                        <h2 class="text-cyan-500 font-mono text-sm mb-4">/// DEPLOYMENTS</h2>
+                        <h3 class="text-4xl md:text-5xl font-bold text-white">Selected Works</h3>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    {{#work}}
+                    <div
+                        class="group relative rounded-xl overflow-hidden aspect-video border border-white/10 hover:border-cyan-500/50 transition-all reveal-on-scroll">
+                        <img src="{{image}}" alt="{{title}}"
+                            class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent">
+                        </div>
+
+                        <div class="absolute bottom-0 left-0 p-8 w-full">
+                            <div
+                                class="flex justify-between items-end transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                <div>
+                                    <div class="text-cyan-400 font-mono text-xs mb-2">{{category}}</div>
+                                    <h4 class="text-2xl font-bold text-white">{{title}}</h4>
+                                </div>
+                                <div
+                                    class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                                    ↗
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/work}}
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="py-32 relative z-10 border-t border-white/5">
+            <div class="max-w-site mx-auto px-6">
+                <div class="text-center mb-20 reveal-on-scroll">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">The Architects</h2>
+                    <p class="text-slate-400">Building tomorrow, today.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    {{#team}}
+                    <div class="group relative reveal-on-scroll">
+                        <div
+                            class="aspect-square rounded-xl overflow-hidden bg-slate-900 mb-6 border border-white/10 group-hover:border-cyan-500/50 transition-colors">
+                            <img src="{{photo}}"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                alt="{{name}}" onerror="this.style.display='none'">
+                            <div
+                                class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity mix-blend-overlay">
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold text-white">{{name}}</h4>
+                        <p class="text-cyan-500 font-mono text-xs mt-1">{{role}}</p>
+                    </div>
+                    {{/team}}
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-32 relative z-10 bg-slate-900/30">
+            <div class="max-w-site mx-auto px-6">
+                <div class="text-center mb-20 reveal-on-scroll">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white">Access Protocols</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    {{#pricing}}
+                    <div
+                        class="relative p-10 rounded-2xl border border-white/10 bg-slate-950 hover:border-cyan-500/50 transition-all duration-300 reveal-on-scroll group">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+
+                        <div class="relative z-10">
+                            <div class="font-mono text-cyan-500 text-xs mb-6">/// {{title}}</div>
+                            <div class="flex items-baseline gap-1 mb-8">
+                                <h3 class="text-5xl font-bold text-white tracking-tight">{{price}}</h3>
+                                <span class="text-slate-500">/mo</span>
+                            </div>
+
+                            <ul class="space-y-4 mb-10">
+                                {{#points}}
+                                <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                    <span class="text-cyan-500">›</span> {{.}}
+                                </li>
+                                {{/points}}
+                            </ul>
+
+                            <a href="#contact"
+                                class="block w-full py-4 text-center rounded-lg border border-white/20 text-white font-bold hover:bg-white hover:text-slate-950 transition-all">
+                                Initialize Access
+                            </a>
+                        </div>
+                    </div>
+                    {{/pricing}}
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-32 relative z-10">
+            <div class="max-w-3xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-white mb-12 reveal-on-scroll">System Queries</h2>
+                <div class="space-y-4">
+                    {{#faq}}
+                    <div
+                        class="border border-white/10 rounded-lg bg-slate-900/50 overflow-hidden reveal-on-scroll group">
+                        <div
+                            class="p-6 cursor-pointer flex justify-between items-center hover:bg-white/5 transition-colors">
+                            <h3 class="font-bold text-white">{{question}}</h3>
+                            <span class="text-cyan-500 font-mono group-hover:rotate-45 transition-transform">+</span>
+                        </div>
+                        <div class="px-6 pb-6 text-slate-400 text-sm hidden group-hover:block animate-fade-in">
+                            {{answer}}
+                        </div>
+                    </div>
+                    {{/faq}}
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="py-20 border-t border-white/10 relative z-10 bg-slate-950">
+            <div class="max-w-site mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 bg-cyan-500 rounded flex items-center justify-center font-bold text-slate-950">
+                            N</div>
+                        <span class="font-bold text-xl text-white">Nexus Lab</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-8 text-slate-400 font-mono text-xs">
+                        <a href="mailto:{{footer.email}}"
+                            class="hover:text-cyan-400 transition-colors">{{footer.email}}</a>
+                        <a href="tel:{{footer.phone}}"
+                            class="hover:text-cyan-400 transition-colors">{{footer.phone}}</a>
+                        <div>© 2024 Nexus Lab. All systems nominal.</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+        // Interactive Grid Effect (Mouse movement)
+        document.addEventListener('mousemove', (e) => {
+            const grid = document.querySelector('.tech-grid');
+            if (grid) {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                grid.style.transform = `translate(-${x * 20}px, -${y * 20}px)`;
+            }
+        });
+    </script>
+
+    <style>
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 0.3s ease-out forwards;
+        }
+    </style>
+</body>
+
+</html>

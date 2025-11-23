@@ -1,0 +1,114 @@
+{
+  "hero": {
+    "title": "Architecting the future with Nexus Lab",
+    "subtitle": "Innovation & Research",
+    "text": "At Nexus Lab, we bridge the gap between theoretical science and practical application, turning tomorrow's possibilities into today's reality."
+  },
+  "stats": [
+    {
+      "value": "150+",
+      "label": "Patents Filed"
+    },
+    {
+      "value": "50+",
+      "label": "Enterprise Partners"
+    },
+    {
+      "value": "10",
+      "label": "Global Labs"
+    }
+  ],
+  "work": [
+    {
+      "title": "Quantum Encryption",
+      "category": "Cybersecurity",
+      "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "title": "Neural Interfaces",
+      "category": "Biotech",
+      "image": "https://images.unsplash.com/photo-1531297461136-82lw9f214380?auto=format&fit=crop&w=800&q=80"
+    }
+  ],
+  "services": [
+    {
+      "title": "R&D Strategy",
+      "desc": "Navigating complex technological landscapes."
+    },
+    {
+      "title": "Rapid Prototyping",
+      "desc": "From concept to MVP in record time."
+    },
+    {
+      "title": "AI Integration",
+      "desc": "Implementing cutting-edge machine learning models."
+    },
+    {
+      "title": "Data Analytics",
+      "desc": "Unlocking insights from massive datasets."
+    },
+    {
+      "title": "Tech Audits",
+      "desc": "Evaluating and optimizing your tech stack."
+    }
+  ],
+  "team": [
+    {
+      "name": "Dr. Elena Rostova",
+      "role": "Chief Scientist",
+      "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "name": "Marcus Chen",
+      "role": "Head of Engineering",
+      "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "name": "Sarah Jennings",
+      "role": "Product Visionary",
+      "photo": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&q=80"
+    }
+  ],
+  "pricing": [
+    {
+      "title": "Incubator",
+      "price": "$5,000",
+      "points": [
+        "Access to Lab Resources",
+        "Weekly Mentorship",
+        "Cloud Credits",
+        "IP Support",
+        "Networking Events"
+      ]
+    },
+    {
+      "title": "Enterprise",
+      "price": "$15,000",
+      "points": [
+        "Dedicated Research Team",
+        "Custom Prototyping",
+        "24/7 Support",
+        "On-site Workshops",
+        "Full IP Ownership"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Who owns the IP?",
+      "answer": "We offer flexible IP arrangements suited to your partnership level."
+    },
+    {
+      "question": "Do you work with startups?",
+      "answer": "Yes, our Incubator program is designed specifically for high-growth startups."
+    },
+    {
+      "question": "What industries do you cover?",
+      "answer": "We focus on Biotech, AI, Robotics, and Sustainable Energy."
+    }
+  ],
+  "footer": {
+    "email": "innovate@nexuslab.io",
+    "phone": "+1 (888) 987-6543"
+  }
+}
